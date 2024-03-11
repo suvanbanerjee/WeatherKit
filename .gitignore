@@ -1,0 +1,35 @@
+# Byte-compiled
+*~
+*.pyc
+*.pyo
+__pycache__/
+
+# Distribution
+build/
+dist/
+eggs/
+.eggs/
+sdist/
+*.egg-info/
+*.egg
+
+# Unit test / Coverage reports
+htmlcov
+.coverage
+.coverage.*
+.pytest_cache/
+.tox/
+
+# Environments
+.idea
+.env
+.venv
+env/
+venv/
+
+# mypy
+.mypy_cache/
+
+#environment variables
+*.env
+*.pypirc
