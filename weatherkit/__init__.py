@@ -1,1 +1,2 @@
-from weatherkit.hello import hello
+from weatherkit.current_weather import current_weather
+from weatherkit.daily_weather import daily_weather
