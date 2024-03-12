@@ -23,7 +23,6 @@ Imports
 '''
 import geopy
 import requests
-import json
 
 def is_float(n):
     '''
@@ -56,36 +55,67 @@ class daily_weather:
             except:
                 self.lat = None
                 self.lon = None
-    def max_temperature(self,units='metric'):
+    def max_temperature(self,units='metric',day_offset=0):
         '''
         This method is used to get the maximum temperature of a city.
         '''
         if self.lat and self.lon:
             url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&daily=temperature_2m_max".format(self.lat, self.lon)
+            if units == 'imperical':
+                url = url + "&temperature_unit=fahrenheit"
             try:
                 data = requests.get(url).json()
-                temp = data["daily"]["temperature_2m_max"][0]
+                temp = data["daily"]["temperature_2m_max"][day_offset]
                 return temp
             except Exception as e:
                 print("Error fetching weather data:", e)
         else:
             print("Invalid Latitude and Longitude")
     
-    def min_temperature(self,units='metric'):
+    def min_temperature(self,units='metric',day_offset=0):
         '''
         This method is used to get the minimum temperature of a city.
         '''
         if self.lat and self.lon:
             url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&daily=temperature_2m_min".format(self.lat, self.lon)
+            if units == 'imperical':
+                url = url + "&temperature_unit=fahrenheit"
             try:
                 data = requests.get(url).json()
-                temp = data["daily"]["temperature_2m_min"][0]
+                temp = data["daily"]["temperature_2m_min"][day_offset]
                 return temp
             except Exception as e:
                 print("Error fetching weather data:", e)
         else:
             print("Invalid Latitude and Longitude")
         
-City = daily_weather(52.5200, 13.4050)
-print(City.max_temperature())
-print(City.min_temperature())
+    def precipitation_sum(self,units='metric',day_offset=0):
+        '''
+        This method is used to get the precipitation of a city.
+        '''
+        if self.lat and self.lon:
+            url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&daily=precipitation_sum".format(self.lat, self.lon)
+            if units == 'imperical':
+                url = url + "&precipitation_unit=inch"
+            try:
+                data = requests.get(url).json()
+                temp = data["daily"]["precipitation_sum"][day_offset]
+                return temp
+            except Exception as e:
+                print("Error fetching weather data:", e)
+        else:
+            print("Invalid Latitude and Longitude")
+    def weather_code(self,day_offset=0):
+        '''
+        This method is used to get the weather code of a city.
+        '''
+        if self.lat and self.lon:
+            url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&daily=weathercode".format(self.lat, self.lon)
+            try:
+                data = requests.get(url).json()
+                temp = data["daily"]["weathercode"][day_offset]
+                return temp
+            except Exception as e:
+                print("Error fetching weather data:", e)
+        else:
+            print("Invalid Latitude and Longitude")
