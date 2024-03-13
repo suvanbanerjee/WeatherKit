@@ -8,7 +8,7 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
 VERSION = '0.2.3'
-DESCRIPTION = 'python package to get weather details of any city in the world. without any API key.'
+DESCRIPTION = 'Get weather details of any city or latitude and longitude of the location. without an API key.'
 
 setup(
     name="weatherkit",
@@ -20,9 +20,9 @@ setup(
     long_description=long_description,
     packages=find_packages(),
     install_requires=['geopy'],
-    keywords=['python','weather','weatherkit','weather details','weather of any city','openweatherapi'],
+    keywords=['python','weather','weatherkit','openweatherapi'],
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
