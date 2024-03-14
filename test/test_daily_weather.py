@@ -1,5 +1,5 @@
 import unittest
-from daily_weather import daily_weather
+from weatherkit.daily_weather import daily_weather
 
 class TestDailyWeather(unittest.TestCase):
     def setUp(self):

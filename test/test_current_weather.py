@@ -1,5 +1,5 @@
 import unittest
-from current_weather import current_weather
+from weatherkit.current_weather import current_weather
 
 class TestCurrentWeather(unittest.TestCase):
     def setUp(self):
