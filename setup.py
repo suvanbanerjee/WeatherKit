@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.2.3'
+VERSION = '1.0.0'
 DESCRIPTION = 'Get weather details of any city or latitude and longitude of the location. without an API key.'
 
 setup(
