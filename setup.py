@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.2'
+VERSION = '1.1.0'
 DESCRIPTION = 'Get weather details of any city or latitude and longitude of the location. without an API key.'
 
 setup(
@@ -15,6 +15,7 @@ setup(
     version=VERSION,
     author="Suvan Banerjee",
     author_email="<banerjeesuvan@gmail.com>",
+    url="https://github.com/suvanbanerjee/weatherkit",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
