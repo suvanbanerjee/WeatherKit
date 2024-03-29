@@ -60,6 +60,15 @@ class current_weather:
     def temperature(self,units='metric'):
         '''
         This method is used to get the current temperature of the city.
+
+        Parameters:
+        units: str
+            The unit of the temperature. Default is 'metric'.
+            'metric' for Celsius and 'imperical' for Fahrenheit.
+        
+        Returns:
+        float
+            The current temperature of the city.
         '''
         if self.lat and self.lon:
             url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=temperature_2m".format(self.lat, self.lon)
@@ -76,6 +85,10 @@ class current_weather:
     def humidity(self):
         '''
         This method is used to get the current humidity of the city.
+
+        Returns:
+        float
+            The current humidity of the city.
         '''
         if self.lat and self.lon:
             url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=relative_humidity_2m".format(self.lat, self.lon)
@@ -89,6 +102,14 @@ class current_weather:
     def precipitation(self,units='metric'):
         '''
         This method is used to get the current precipitation of the city.
+        Parameters:
+        units: str
+            The unit of the temperature. Default is 'metric'.
+            'metric' for Celsius and 'imperical' for Fahrenheit.
+        
+        Returns:
+        float
+            The current precipitation of the city.
         '''
         if self.lat and self.lon:
             url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=precipitation".format(self.lat, self.lon)
@@ -104,12 +125,38 @@ class current_weather:
     def weather_code(self):
         '''
         This method is used to get the current weather code of the city.
+        Returns:
+        int
+            The current weather code of the city.
         '''
         if self.lat and self.lon:
             url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=weather_code".format(self.lat, self.lon)
             try:
                 data = requests.get(url).json()
                 return data["current"]["weather_code"]
+            except Exception as e:
+                return "Error fetching weather data:", e
+        else:
+            return "Invalid Latitude or Longitude"
+    def wind_speed(self,units='metric'):
+        '''
+        This method is used to get the current wind speed of the city.
+        Parameters:
+        units: str
+            The unit of the temperature. Default is 'metric'.
+            'metric' for Celsius and 'imperical' for Fahrenheit.
+        
+        Returns:
+        tuple(float windspeed,float direction in deg)
+            The current wind speed and wind direction of the city.
+        '''
+        if self.lat and self.lon:
+            url = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=wind_speed_10m,wind_direction_10m".format(self.lat, self.lon)
+            if units == 'imperical':
+                url = url + "&wind_speed_unit=mph"
+            try:
+                data = requests.get(url).json()
+                return data["current"]["wind_speed_10m"], data["current"]["wind_direction_10m"]
             except Exception as e:
                 return "Error fetching weather data:", e
         else:
