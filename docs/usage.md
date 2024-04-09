@@ -1,9 +1,9 @@
 # Usage
 
-### Current Weather
+## Current Weather
 
 Current weather can be accessed by creating an object of the `current_weather` class. The object can be created by providing the city name or the latitude and longitude of the location. The object provides the following methods to get the weather details:
-#### Sample usage providing city name
+### Sample usage providing city name
 
 ```python
 import weatherkit
@@ -20,7 +20,7 @@ print(NYC.precipitation())
 # Output: 0.0
 ```
 
-#### Sample usage providing latitude and longitude
+### Sample usage providing latitude and longitude
 
 ```python
 import weatherkit
@@ -36,7 +36,7 @@ print(NYC.weather_code())
 print(NYC.precipitation())
 # Output: 0.0
 ```
-### Daily Forecast
+## Daily Forecast
 
 Daily forecast can be accessed by creating an object of the `daily_forecast` class. The object can be created by providing the city name or the latitude and longitude of the location. The object provides the following methods to get the weather details:
 
@@ -64,7 +64,7 @@ print(NYC.weather_code())
 print(NYC.weather_code(day_offset=3))
 # Output: 3
 ```
-#### Note 
+### Note 
 - Similar to current weather, daily forecast can also be used by providing latitude and longitude.
 
 - day_offset is the number of days from today for which the forecast is required. day_offset=0 (which is default) will give the forecast for today, day_offset=1 will give the forecast for tomorrow and so on.

@@ -5,4 +5,4 @@ nav:
   - "Getting Started": getting-started.md
   - "Usage": usage.md
   - "Contribute": contribute.md
-theme: readthedocs
+theme: material

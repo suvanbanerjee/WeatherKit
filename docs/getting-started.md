@@ -1,5 +1,4 @@
-
-## Getting Started
+# Getting Started
 
 The easy way to get WeatherKit is from pip:
 
