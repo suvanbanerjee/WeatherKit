@@ -53,11 +53,11 @@ print(NYC.max_temperature(day_offset=3))
 # Output: 20.0
 print(NYC.max_temperature(day_offset=3, units='imperial'))
 # Output: 68.0
-print(NYC.prediction_sum())
+print(NYC.precipitation_sum())
 # Output: 0.0
-print(NYC.prediction_sum(day_offset=3))
+print(NYC.precipitation_sum(day_offset=3))
 # Output: 3.2
-print(NYC.prediction_sum(units='imperial'))
+print(NYC.precipitation_sum(units='imperial'))
 # Output: 0.0 (in Inches)
 print(NYC.weather_code())
 # Output: 3
